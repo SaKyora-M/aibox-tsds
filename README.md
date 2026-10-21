@@ -6,7 +6,8 @@
 - **存什么**：录像索引与元数据、告警事件、AI 检测结果等结构化时序元数据。
 - **不存什么**：视频文件本体、图片/抓拍等大对象（TSDS 只存路径引用）。
 
-设计依据：[`docs/AIBOX-TSDS.md`](docs/AIBOX-TSDS.md)（接口以其中 3.2 节 `tsds.h` 为唯一真源）。
+设计依据：[`docs/AIBOX-TSDS-v2.0.md`](docs/AIBOX-TSDS-v2.0.md)（落地版，含实现细节与阶段 2/3 规划）；
+原始设计归档于 [`docs/AIBOX-TSDS.md`](docs/AIBOX-TSDS.md)（v1.0，接口以其中 3.2 节 `tsds.h` 为唯一真源）。
 
 ## 当前进度
 
