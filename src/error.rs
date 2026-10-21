@@ -29,6 +29,8 @@ pub enum TsdsError {
     },
     /// 句柄已关闭或已释放后继续使用。
     Closed,
+    /// 引擎内部不变量被破坏（如后台线程 panic）。
+    Internal(&'static str),
 }
 
 impl fmt::Display for TsdsError {
@@ -47,6 +49,7 @@ impl fmt::Display for TsdsError {
                 "memory budget exceeded: requested {requested_bytes} bytes, limit {limit_bytes} bytes"
             ),
             TsdsError::Closed => write!(f, "engine handle already closed"),
+            TsdsError::Internal(what) => write!(f, "internal error: {what}"),
         }
     }
 }
