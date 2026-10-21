@@ -1,0 +1,8 @@
+/target
+/data
+**/*.rs.bk
+*.profraw
+.DS_Store
+Thumbs.db
+/.vscode/
+/.idea/

@@ -1,0 +1,21 @@
+[package]
+name = "aibox-tsds"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+description = "AIBOX-TSDS: 面向边缘 AI 盒子的轻量级时序数据存储引擎（LSM-Tree）"
+publish = false
+
+[lib]
+name = "tsds"
+crate-type = ["rlib", "cdylib", "staticlib"]
+
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+
+[profile.bench]
+inherits = "release"

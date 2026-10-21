@@ -1,0 +1,7 @@
+# 全仓库统一 LF，避免 Windows 开发 / WSL2 验证时的行尾漂移
+* text=auto eol=lf
+
+# 仅供 Windows 直接执行的脚本保持 CRLF
+*.bat  text eol=crlf
+*.ps1  text eol=crlf
+*.cmd  text eol=crlf
