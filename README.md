@@ -1,5 +1,9 @@
 # AIBOX-TSDS
 
+[![CI](https://github.com/SaKyora-M/aibox-tsds/actions/workflows/ci.yml/badge.svg)](https://github.com/SaKyora-M/aibox-tsds/actions/workflows/ci.yml)
+[![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](#许可证)
+[![Rust](https://img.shields.io/badge/rust-1.75%2B-orange.svg)](rust-toolchain.toml)
+
 面向边缘 AI 盒子（ARM64 / eMMC / 内存受限）的轻量级时序数据存储引擎，Rust + LSM-Tree 实现，
 最终编译为 `libtsds.so`，通过 C ABI 供宿主程序（C/C++）以 FFI 方式调用。
 
