@@ -1,7 +1,7 @@
 # AIBOX-TSDS
 
 面向边缘 AI 盒子（ARM64 / eMMC / 内存受限）的轻量级时序数据存储引擎，Rust + LSM-Tree 实现，
-最终编译为 `libtsds.so` 并通过 C ABI 供 C++ 算法插件 FFI 调用。
+最终编译为 `libtsds.so`，通过 C ABI 供宿主程序（C/C++）以 FFI 方式调用。
 
 - **存什么**：录像索引与元数据、告警事件、AI 检测结果等结构化时序元数据。
 - **不存什么**：视频文件本体、图片/抓拍等大对象（TSDS 只存路径引用）。
@@ -16,7 +16,7 @@
 | 1 | 引擎核心：脚手架 → 内存表 → WAL → SSTable → 范围查询 → TTL/淘汰 → Compaction → 批量写 → FFI | ✅ 已完成（9 步） |
 | 2 | 验证与对比：异常测试矩阵、SQLite 基线对比、《基线对比报告.md》 | ⬜ 未开始 |
 | 3 | 交叉编译 aarch64 `libtsds.so` + C demo 验证 | ⬜ 未开始 |
-| 4 | 外部集成（C++ 插件接入告警事件场景 A） | ⬜ 不在本仓库 |
+| 4 | 外部集成（宿主程序接入告警事件场景） | ⬜ 不在本仓库 |
 
 ## 构建与测试
 
@@ -72,3 +72,13 @@ docs/               设计文档
 - 内核 `#![deny(unsafe_code)]`，只有 `src/ffi` 模块 `#![allow(unsafe_code)]`。
 - 不设 `panic = "abort"`：FFI 边界用 `catch_unwind` 把 panic 转成错误码，避免拖垮宿主进程。
 - `Cargo.lock` 入库，保证边缘设备构建可复现。
+
+## 许可证
+
+本项目采用 **MIT OR Apache-2.0** 双许可，可任选其一：
+
+- [LICENSE-MIT](LICENSE-MIT)
+- [LICENSE-APACHE](LICENSE-APACHE)
+
+除非你明确声明，任何有意提交以纳入本项目的贡献，均按上述双许可授权。
+

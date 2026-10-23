@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 rust-version = "1.75"
 description = "AIBOX-TSDS: 面向边缘 AI 盒子的轻量级时序数据存储引擎（LSM-Tree）"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
 publish = false
 
 [lib]
